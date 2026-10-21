@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pusat Link Puskesmas Sangasanga</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏥%3C/text%3E%3C/svg%3E">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f8f7;--card:#fff;--tx:#14302b;--mu:#5d7872;--ac:#0f766e;--ac2:#e0f2ef;--bd:#d6e4e1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e1b19;--card:#162825;--tx:#e6f2ef;--mu:#8fb0a9;--ac:#4fd1c0;--ac2:#1d3a36;--bd:#27413d}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e1b19;--card:#162825;--tx:#e6f2ef;--mu:#8fb0a9;--ac:#4fd1c0;--ac2:#1d3a36;--bd:#27413d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{padding:28px 16px 8px;max-width:960px;margin:auto}
+h1{font-size:1.5rem;margin:0 0 4px}
+header p{margin:0;color:var(--mu)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;padding:10px 16px;max-width:960px;margin:auto}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input,select,button{font:inherit;color:var(--tx)}
+input,select{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;width:100%}
+#q{flex:1;min-width:0}
+button{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;cursor:pointer}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+:root[data-theme="dark"] button.p{color:#06201c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button.p{color:#06201c}}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px}
+.chip{white-space:nowrap;border-radius:99px;padding:6px 12px;font-size:.85rem}
+.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+:root[data-theme="dark"] .chip.on{color:#06201c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.on{color:#06201c}}
+main{max-width:960px;margin:auto;padding:4px 16px 60px}
+section{margin-top:22px}
+.sh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.sh h2{font-size:1.05rem;margin:0}
+.sh small{color:var(--mu);font-weight:400}
+.sh button{font-size:.8rem;padding:5px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.card{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px}
+.card a{flex:1;min-width:0;color:var(--tx);text-decoration:none;font-weight:500;overflow-wrap:anywhere}
+.card a:hover{color:var(--ac)}
+.tag{font-size:.68rem;background:var(--ac2);color:var(--ac);border-radius:6px;padding:2px 7px;font-weight:600;flex:none}
+.card button{padding:4px 8px;font-size:.8rem;flex:none}
+.empty{color:var(--mu);text-align:center;padding:40px 0}
+dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:14px;width:min(420px,92vw)}
+dialog::backdrop{background:#0008}
+dialog label{display:block;margin:10px 0 4px;font-size:.85rem;color:var(--mu)}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:.85rem;opacity:0;pointer-events:none;transition:.2s}
+#toast.on{opacity:1}
+</style></head><body>
+<header><h1>Pusat Link Puskesmas Sangasanga</h1><p>Semua form, rekap laporan, dan aplikasi kerja dalam satu halaman.</p></header>
+<div class="bar">
+ <div class="row"><input id="q" type="search" placeholder="Cari link… (mis. surat, rawat inap, kinerja)"><button class="p" id="add">+ Tambah</button><button id="exp" title="Salin isi data.js terbaru untuk ditempel ke GitHub">Ekspor</button></div>
+ <div class="chips" id="chips"></div>
+</div>
+<main id="app"></main>
+<dialog id="dlg"><form method="dialog" id="f">
+ <h3 style="margin:0 0 4px">Tambah link</h3>
+ <p style="margin:0;color:var(--mu);font-size:.8rem">Tersimpan di perangkat ini. Agar tampil untuk semua, klik Ekspor lalu tempel ke data.js di GitHub.</p>
+ <label>Nama link</label><input id="n" required>
+ <label>URL</label><input id="u" type="url" placeholder="https://" required>
+ <label>Kelompok</label><select id="c"></select>
+ <input id="nc" placeholder="…atau buat kelompok baru" style="margin-top:6px">
+ <div class="row" style="margin-top:14px;justify-content:flex-end"><button type="button" id="x">Batal</button><button class="p">Simpan</button></div>
+</form></dialog>
+<div id="toast"></div>
+<script src="data.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const LK='plink_extra';
+let base=window.LINKS||{cats:[],links:[]},extra=[],cur='',term='';
+try{extra=JSON.parse(localStorage.getItem(LK)||'[]')}catch(e){}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function type(u){if(/forms\.gle|docs\.google\.com\/forms/.test(u))return'Form';if(/spreadsheets/.test(u))return'Sheet';if(/presentation/.test(u))return'Slide';if(/drive\.google/.test(u))return/folders/.test(u)?'Folder':'File';return'Web'}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2200)}
+async function copy(t,m){try{await navigator.clipboard.writeText(t);toast(m||'Tersalin')}catch(e){prompt('Salin manual:',t)}}
+function items(){return base.links.map(l=>({c:base.cats[l[0]],n:l[1],u:l[2]})).concat(extra.map((l,i)=>({c:l[0],n:l[1],u:l[2],x:i})))}
+function cats(){const a=base.cats.slice();extra.forEach(l=>{if(!a.includes(l[0]))a.push(l[0])});return a}
+function save(){try{localStorage.setItem(LK,JSON.stringify(extra))}catch(e){toast('Penyimpanan lokal tidak tersedia')}}
+function render(){
+ const C=cats(),L=items().filter(l=>(!cur||l.c===cur)&&(l.n+' '+l.u+' '+l.c).toLowerCase().includes(term));
+ $('#chips').innerHTML=`<button class="chip ${!cur?'on':''}" data-c="">Semua</button>`+C.map((c,i)=>`<button class="chip ${cur===c?'on':''}" data-c="${i}">${esc(c)}</button>`).join('');
+ let h='';
+ C.forEach((c,ci)=>{const g=L.filter(l=>l.c===c);if(!g.length)return;
+  h+=`<section><div class="sh"><h2>${esc(c)} <small>(${g.length})</small></h2><button data-cp="${ci}">Salin daftar (WA)</button></div><div class="grid">`+
+  g.map(l=>`<div class="card"><span class="tag">${type(l.u)}</span><a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.n)}</a><button data-u="${esc(l.u)}">Salin</button>${l.x!==undefined?`<button data-d="${l.x}" title="Hapus">×</button>`:''}</div>`).join('')+`</div></section>`});
+ $('#app').innerHTML=h||'<div class="empty">Tidak ada link yang cocok.</div>'}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.c!==undefined){cur=b.dataset.c===''?'':cats()[+b.dataset.c];render()}
+ else if(b.dataset.u)copy(b.dataset.u);
+ else if(b.dataset.cp!==undefined){const c=cats()[+b.dataset.cp];copy('*'+c+'*\n'+items().filter(l=>l.c===c).map(l=>'• '+l.n+'\n'+l.u).join('\n'))}
+ else if(b.dataset.d!==undefined){extra.splice(+b.dataset.d,1);save();render()}});
+$('#q').oninput=e=>{term=e.target.value.toLowerCase().trim();render()};
+$('#add').onclick=()=>{$('#c').innerHTML=cats().map(c=>`<option>${esc(c)}</option>`).join('');$('#dlg').showModal()};
+$('#x').onclick=()=>$('#dlg').close();
+$('#f').onsubmit=()=>{
+ const nc=$('#nc').value.trim();
+ extra.push([nc||$('#c').value,$('#n').value.trim(),$('#u').value.trim()]);
+ save();$('#f').reset();toast('Tersimpan di perangkat ini');render()};
+$('#exp').onclick=()=>{
+ const C=cats(),links=base.links.slice();
+ extra.forEach(l=>links.push([C.indexOf(l[0]),l[1],l[2]]));
+ const txt='window.LINKS = {\n  "cats": '+JSON.stringify(C)+',\n  "links": [\n'+links.map(l=>'    '+JSON.stringify(l)).join(',\n')+'\n  ]\n};\n';
+ copy(txt,'Isi data.js tersalin. Tempel ke data.js di GitHub')};
+render();
+</script></body></html>

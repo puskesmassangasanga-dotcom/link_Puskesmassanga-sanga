@@ -1,0 +1,52 @@
+// DATA LINK PUSKESMAS SANGASANGA
+// Cara menambah link: tambahkan baris baru di bagian "links".
+// Format: [nomor_kelompok, "Nama Link", "https://url"]
+// Nomor kelompok = urutan di "cats" mulai dari 0.
+window.LINKS = {
+  "cats": ["Pelaporan & Rekap Kegiatan", "Pelayanan & Klaim", "Kepegawaian & SDM", "Aplikasi & Data Kemenkes", "Surat & Dokumen", "Akreditasi"],
+  "links": [
+    [0, "Form Laporan Kegiatan Puskesmas", "https://forms.gle/gt3LK8ZZ6rniRHiv8"],
+    [0, "Rekap Laporan Kegiatan Puskesmas", "https://docs.google.com/spreadsheets/d/1-H6sLpgjuJuZZN1_MQzzs431kmvx320G-S1Bx6YpAVM/edit?usp=sharing"],
+    [0, "ILP Puskesmas Sangasanga", "https://s.id/ilp_pkmsangasanga"],
+    [0, "Laporan Pegawai 2024 & 2025 (pelatihan, GEMA, Posyandu, dll)", "https://s.id/laporan_pegawai_pkm99"],
+    [0, "Form Rekap Survey Keluhan (admin)", "https://forms.gle/vqpwt1c46NauxBcz9"],
+    [0, "Rekap Permintaan Data & Informasi", "https://docs.google.com/presentation/d/1397U-OR-HfyvbdfyRiqNX4Iqkv56ycL7/edit?usp=sharing&ouid=101053765228483426894&rtpof=true&sd=true"],
+    [0, "Form Input Pertemuan Puskesmas", "https://forms.gle/YGb6ZRb3wmbJGbAt9"],
+    [0, "Rekap Pertemuan Puskesmas", "https://docs.google.com/spreadsheets/d/1MviN-Kq0iYSL5kMqyWy_AC_CjjsoRDqv51UthcxG1JA/edit?usp=sharing"],
+    [1, "Form Rekap Kunjungan Rawat Jalan (Poli & Pustu)", "https://forms.gle/55qzFQVhs7DCBDvt6"],
+    [1, "Form Laporan Rawat Jalan IGD", "https://forms.gle/XkwSwhCNbc27wdrk9"],
+    [1, "Form Laporan Pasien Rawat Inap", "https://forms.gle/8kNJmY3ym3oiPyGi8"],
+    [1, "e-Puskesmas (aplikasi layanan puskesmas)", "https://kutaikartanegara.epuskesmas.id/"],
+    [1, "P-Care BPJS", "https://pcarejkn.bpjs-kesehatan.go.id/eclaim/Login"],
+    [2, "eKinerja: ASN Digital", "https://asndigital.bkn.go.id/"],
+    [2, "Data Dukung eKinerja 2026", "https://docs.google.com/spreadsheets/d/1iAjtkApYV3kv3U6bI6FvgjqEQf6bEgk1dQHLsy049Sg/edit?usp=sharing"],
+    [2, "Folder Data Dukung eKinerja 2023-2025", "https://drive.google.com/drive/folders/15-MZabcxn8G-_orUcLfH4cLQcLT9LU1n?usp=sharing"],
+    [2, "SIMPEG Kukar", "https://simpeg-ng.kukarkab.go.id/login"],
+    [2, "ePantau Kukar", "https://epantau-ng.kukarkab.go.id/"],
+    [2, "Data Pegawai PKM Sangasanga 2026", "https://docs.google.com/spreadsheets/d/1vK_0TMoV1wGgVzY9DXlbYXiL-1vcjKJAJPbNMU9X5Lg/edit?usp=sharing"],
+    [2, "Ceklist Kepegawaian (usul kenpa/jafung/kgb)", "https://drive.google.com/drive/folders/1VcEaId9A5I3ohNw0VTqDJgz53Cr0DC4e?usp=sharing"],
+    [2, "Portal Pengembangan Kompetensi (BANGKOM) Kukar", "https://bangkom.kukarkab.go.id/"],
+    [2, "Pembuatan SIP di Dinas MPP Kukar (Lawang MPP)", "http://lawang-mpp.kukarkab.go.id/"],
+    [2, "ANJAB ABK Kukar", "https://idaman-bekerja.kukarkab.go.id/"],
+    [2, "Satu Sehat - SISDMK", "https://satusehat.kemkes.go.id/sdmk"],
+    [2, "Rencana Kebutuhan Tenaga (RENBUT) Kemenkes 2025", "https://renbut.kemkes.go.id/"],
+    [3, "ASPAK Kemenkes", "https://aspak.kemkes.go.id/aplikasi/"],
+    [3, "INM - Mutu Fasyankes", "https://mutufasyankes.kemkes.go.id/"],
+    [3, "Registrasi Fasyankes", "https://registrasifasyankes.kemkes.go.id/"],
+    [3, "Data Jejaring Puskesmas Sangasanga", "https://docs.google.com/spreadsheets/d/1aydQ85fys6TExWIxgv6ZDM-otqWYoTyd/edit?usp=sharing&ouid=101053765228483426894&rtpof=true&sd=true"],
+    [4, "Register Surat Masuk 2026 (form)", "https://forms.gle/DUtKcq5U4dx4pJZi9"],
+    [4, "Rekap Register Surat Masuk 2026", "https://docs.google.com/spreadsheets/d/1VOvXupLZXWcQjdnzhqmHjdMzbzG0zJSz7jSuVDy905s/edit?usp=sharing"],
+    [4, "Register Surat Keluar 2026 (form)", "https://forms.gle/bf67E5rrtrkGtAf1A"],
+    [4, "Rekap Surat Keluar 2026", "https://docs.google.com/spreadsheets/d/1F-5lP949VPodImo-cze8aLtuDKP9BQFtrTKpQlN5EHk/edit?usp=sharing"],
+    [4, "Rekap Folder TTE Surat Keluar", "https://drive.google.com/drive/folders/19L_h0FJ67nBYDGwLwj_wr-MsSmzV-qbO?usp=sharing"],
+    [4, "Upload Dokumen Internal Puskesmas", "https://forms.gle/Aouixh9YTBhYKNmQ6"],
+    [4, "Rekap Dokumen Internal Puskesmas", "https://docs.google.com/spreadsheets/d/12TEu-O_fiF6IX0aDnARLGMuILbvCM4S1REuN9xDIzEs/edit?usp=sharing"],
+    [4, "Upload Dokumen Eksternal Puskesmas", "https://forms.gle/EeZrN7LrfhxJtbfs7"],
+    [4, "Rekap Dokumen Eksternal Puskesmas", "https://docs.google.com/spreadsheets/d/1KExe3jczPp8A9rp4PKb2ZuE2qmndwdyNnTjxSdv78hM/edit?usp=sharing"],
+    [4, "SRIKANDI Arsip", "https://srikandi.arsip.go.id/"],
+    [5, "DFO - Reakreditasi", "https://dfo.kemkes.go.id/Puskesmas"],
+    [5, "Bukti Dukung PPS Reakreditasi 2023", "https://drive.google.com/drive/folders/1GqVSpnpeAdDPqc6MdqNvcir0z_IeBc8U?usp=sharing"],
+    [5, "Link Upload Laskesi", "https://linktr.ee/akreditasi_sangasanga"],
+    [5, "Sertifikat Akreditasi 2023", "https://drive.google.com/file/d/16dR21_t-tbVeWLHTrIsO4pDV02UPuV85/view?usp=drive_link"]
+  ]
+};
